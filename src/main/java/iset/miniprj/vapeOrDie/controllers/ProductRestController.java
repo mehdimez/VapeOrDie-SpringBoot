@@ -100,5 +100,10 @@ public class ProductRestController {
 	public List<Category> getAllCategories() {
 		return categoryRepository.findAll();
 	}
+	@GetMapping("/productsByCategory/{idCategory}")
+	public List<Product> getAllProduitParCategories(@PathVariable(value = "idCategory") Long categoryId)
+	{
+		return productRepository.findByEmailAddress(categoryId);
+	}
 
 }
