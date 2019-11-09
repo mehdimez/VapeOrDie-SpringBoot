@@ -96,6 +96,7 @@ public class ProductRestController {
 		}).orElseThrow(() -> new ResourceNotFoundException("Product not found with id " + idProduct));
 	}
 
+	
 	@GetMapping("/products/categoriesList")
 	public List<Category> getAllCategories() {
 		return categoryRepository.findAll();
