@@ -19,7 +19,7 @@ public class Category {
 	@Column(name = "id_category")
 	private long idCategory;
 	
-	@NotBlank( message = "Description is required")
+
 	private String description;
 
 
@@ -32,7 +32,7 @@ private List<Product> products ;
 		
 	}
 
-	public Category(@NotBlank(message = "Description is required") String description, List<Product> products) {
+	public Category( String description, List<Product> products) {
 		this.description = description;
 		this.products = products;
 	}
