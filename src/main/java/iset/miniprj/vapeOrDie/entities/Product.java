@@ -21,16 +21,18 @@ public class Product {
 	private String name;
 	private int quantity;
 	private String description;
+	private String image;
 	public Product() {
 
 	}
 
-	public Product(double price, String name, int quantity, String description) {
+	public Product(double price, String name, int quantity, String description,String image) {
 		super();
 		this.price = price;
 		this.name = name;
 		this.quantity = quantity;
 		this.description = description;
+		this.image = image;
 	}
 
 	public long getIdProduct() {
@@ -85,5 +87,14 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 
 }

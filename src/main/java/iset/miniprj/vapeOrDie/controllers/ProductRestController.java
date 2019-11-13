@@ -52,10 +52,9 @@ public class ProductRestController {
 
 	@PostMapping("/products/{idCategory}")
 	public Product createProduct(@PathVariable(value = "idCategory") Long idCategory,
-			@Valid @RequestBody Product product)
+			@Valid @RequestBody Product product,@RequestParam("files") MultipartFile[] files)
 			throws ResourceNotFoundException {
-		/*, @RequestParam("files") MultipartFile[] files
-		 * StringBuilder fileName = new StringBuilder();
+		StringBuilder fileName = new StringBuilder();
 		MultipartFile file = files[0];
 		Path fileNameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
 		fileName.append(file.getOriginalFilename());
@@ -64,7 +63,7 @@ public class ProductRestController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		  product.setPicture(fileName.toString());*/
+		  product.setImage(fileName.toString());
 		return categoryRepository.findById(idCategory).map(category -> {
 			product.setCategory(category);
 			return productRepository.save(product);
