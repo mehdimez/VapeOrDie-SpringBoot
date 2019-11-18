@@ -33,12 +33,14 @@ public class User {
 	public User() {
 		
 	}
-	public User(String firstName,String lastName,String email, String password) {
+	public User(String firstName,String lastName,String email, String password,String dateOfBirth,String civility) {
 		super();
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
+		this.dateOfBirth = dateOfBirth;
+		this.civility = civility;
 	}
 	public User(String email, String password) {
 		super();
