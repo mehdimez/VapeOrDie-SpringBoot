@@ -25,7 +25,6 @@ public class Category {
     @Column(name = "id_category")
     private long idCategory;
     private String name;
-
     @NotBlank(message = "Description is required")
     private String description;
 
