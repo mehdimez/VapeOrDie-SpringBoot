@@ -53,6 +53,7 @@ public class CategoryRestController {
 		Category category = categoryRepository.findById(categoryId)
 				.orElseThrow(() -> new ResourceNotFoundException("Category not found for this id : " + categoryId));
 		category.setDescription(categoryDetails.getDescription());
+		category.setName(categoryDetails.getName());
 		final Category updatedCategory = categoryRepository.save(category);
 		return ResponseEntity.ok(updatedCategory);
 	}
