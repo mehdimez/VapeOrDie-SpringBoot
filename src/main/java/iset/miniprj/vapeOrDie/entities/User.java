@@ -28,19 +28,19 @@ public class User {
 	@Column(nullable = true)
 	private String dateOfBirth;
 	@Column(nullable = true)
-	private String civility;
+	private String gender;
 	
 	public User() {
 		
 	}
-	public User(String firstName,String lastName,String email, String password,String dateOfBirth,String civility) {
+	public User(String firstName,String lastName,String email, String password,String dateOfBirth,String gender) {
 		super();
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
 		this.dateOfBirth = dateOfBirth;
-		this.civility = civility;
+		this.gender = gender;
 	}
 	public User(String email, String password) {
 		super();
@@ -48,7 +48,7 @@ public class User {
 		this.password = password;
 	}
 	public User( String email, String firstName, String lastName, String phoneNumber, String adress,
-			String password, String dateOfBirth, String civility) {
+			String password, String dateOfBirth, String gender) {
 		super();
 		this.email = email;
 		this.firstName = firstName;
@@ -57,7 +57,7 @@ public class User {
 		this.adress = adress;
 		this.password = password;
 		this.dateOfBirth = dateOfBirth;
-		this.civility = civility;
+		this.gender = gender;
 	}
 
 	public Long getId() {
@@ -116,12 +116,12 @@ public class User {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String getCivility() {
-		return civility;
+	public String getGender() {
+		return gender;
 	}
 
-	public void setCivility(String civility) {
-		this.civility = civility;
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 }

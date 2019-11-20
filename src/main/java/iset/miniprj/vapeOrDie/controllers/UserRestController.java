@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import iset.miniprj.vapeOrDie.entities.User;
 import iset.miniprj.vapeOrDie.repository.UserRepository;
 
-@RequestMapping({"rest"})
+@RequestMapping({"/rest"})
 @RestController
 @CrossOrigin
 public class UserRestController {
