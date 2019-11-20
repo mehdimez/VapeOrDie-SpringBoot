@@ -24,6 +24,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_category")
     private long idCategory;
+    private String name;
 
     @NotBlank(message = "Description is required")
     private String description;
@@ -32,8 +33,17 @@ public class Category {
 
     }
 
-    public Category(String description) {
+    public Category(String name, String description) {
+        this.name = name;
         this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public long getIdCategory() {
