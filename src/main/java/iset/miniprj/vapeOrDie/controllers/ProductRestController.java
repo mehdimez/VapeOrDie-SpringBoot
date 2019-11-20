@@ -31,7 +31,8 @@ import iset.miniprj.vapeOrDie.repository.ProductRepository;
 @CrossOrigin
 @RequestMapping("/rest")
 public class ProductRestController {
-	public static String uploadDirectory = System.getProperty("product.dir") + "/src/main/resources/static/upload";
+	public static String uploadDirectory = System.getProperty("product.dir") + "/src/main/resources/static/uploads";
+
 	@Autowired
 	private ProductRepository productRepository;
 	@Autowired
@@ -54,8 +55,8 @@ public class ProductRestController {
 	public Product createProduct(@PathVariable(value = "idCategory") Long idCategory,
 			@Valid @RequestBody Product product)
 			throws ResourceNotFoundException {
-		/*, @RequestParam("files") MultipartFile[] files
-		 * StringBuilder fileName = new StringBuilder();
+		/*
+		StringBuilder fileName = new StringBuilder();
 		MultipartFile file = files[0];
 		Path fileNameAndPath = Paths.get(uploadDirectory, file.getOriginalFilename());
 		fileName.append(file.getOriginalFilename());
@@ -64,7 +65,7 @@ public class ProductRestController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		  product.setPicture(fileName.toString());*/
+		  product.setImage(fileName.toString());*/
 		return categoryRepository.findById(idCategory).map(category -> {
 			product.setCategory(category);
 			return productRepository.save(product);

@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Category {
+<<<<<<< HEAD
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_category")
@@ -49,6 +50,50 @@ private List<Product> products ;
 	public void setDescription(String description) {
 		this.description = description;
 	}
+=======
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_category")
+    private long idCategory;
+    private String name;
+
+    @NotBlank(message = "Description is required")
+    private String description;
+
+    public Category() {
+
+    }
+
+    public Category(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public long getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(long idCategory) {
+        this.idCategory = idCategory;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+>>>>>>> mehdi
 
 	public List<Product> getProducts() {
 		return products;
