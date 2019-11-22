@@ -11,6 +11,8 @@ import javax.validation.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Category {
@@ -22,9 +24,10 @@ public class Category {
     private String name;
     @NotBlank(message = "Description is required")
     private String description;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_category")
-    @JsonIgnoreProperties({"category"})
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnoreProperties(value = {"category"}, allowSetters = true)
     private List<Product> products ;
     public Category() {
 

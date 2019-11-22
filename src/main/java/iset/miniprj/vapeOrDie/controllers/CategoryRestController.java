@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -63,6 +64,7 @@ public class CategoryRestController {
 			throws ResourceNotFoundException {
 		Category category = categoryRepository.findById(categoryId)
 				.orElseThrow(() -> new ResourceNotFoundException("Category not found for this id : " + categoryId));
+		categoryRepository.deleteAllInBatch();
 		categoryRepository.delete(category);
 		Map<String, Boolean> response = new HashMap<String, Boolean>();
 		response.put("deleted", true);

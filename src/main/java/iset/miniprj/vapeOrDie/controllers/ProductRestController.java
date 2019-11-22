@@ -83,8 +83,9 @@ public class ProductRestController {
 			product.setPrice(productRequest.getPrice());
 			product.setQuantity(productRequest.getQuantity());
 			product.setName(productRequest.getName());
+			product.setImage(productRequest.getImage());
 			product.setCategory(categoryRepository.findById(idCategory).get());
-			return productRepository.save(product);
+			return productRepository.saveAndFlush(product);
 		}).orElseThrow(() -> new ResourceNotFoundException());
 	}
 
