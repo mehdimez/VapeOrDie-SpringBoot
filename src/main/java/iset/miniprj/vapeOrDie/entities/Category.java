@@ -24,7 +24,7 @@ public class Category {
     private String name;
     @NotBlank(message = "Description is required")
     private String description;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_category")
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnoreProperties(value = {"category"}, allowSetters = true)

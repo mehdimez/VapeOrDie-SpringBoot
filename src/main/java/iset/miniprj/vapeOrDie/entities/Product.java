@@ -2,6 +2,7 @@ package iset.miniprj.vapeOrDie.entities;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -69,7 +70,7 @@ public class Product {
 		this.description = description;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "id_category", nullable = false)
 	private Category category;
